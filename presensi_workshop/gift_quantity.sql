@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2019 at 09:14 AM
+-- Generation Time: Apr 25, 2019 at 07:23 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -60,7 +60,8 @@ CREATE TABLE `datapegawai` (
 
 INSERT INTO `datapegawai` (`NIK`, `Nama`) VALUES
 ('1301160438', 'Aditya Smith'),
-('1301160468', 'Jaky Waky');
+('1301160468', 'Jaky Waky'),
+('1301160555', 'Bambang Sarjana');
 
 -- --------------------------------------------------------
 

@@ -1,10 +1,12 @@
 <?php
+session_start();
 require_once("db.config.php");
+include("initialize.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!-- <title>Presensi Workshop Double Jawara Digital Telkomsel Area Jabotabek Jabar 2018</title> -->
+
 	<title>Absensi</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,7 +53,7 @@ require_once("db.config.php");
 			<div class="wrap-login100" id="custom-search-input">
 				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="absensi.php" method="post">
 					<span class="login100-form-title">
-						Absensi
+						ABSENSI
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter NIK or Fullname" id="removeData">
@@ -145,6 +147,22 @@ require_once("db.config.php");
 
 				</form>
 			</div>
+			<div class="lastabsen">
+				<span style="font-size:20px;COLOR:White;background-color: #E53935;padding:0px 20px" > ABSEN TERAKHIR PEGAWAI </span>
+				<span style="font-size:20px;COLOR:BLACK;background-color: WHITE;font-family:Ubuntu-Bold;"><?php echo $row_karyawan[0]."  ".$row_karyawan[1] ?></span>
+			</div>
+			<div class="attendant">
+				<div class="susunanbox">
+					<span class="teksdiatasbox">KARYAWAN MASUK</span>
+					<div class="box_masuk boxsama"><?php echo $count_masuk; ?></div>
+
+				</div>
+				<span style="font-size:25px;COLOR:BLACK;background-color: WHITE; padding:5px;border-radius: 5px;">DARI</span>
+				<div class="susunanbox">
+					<span class="teksdiatasbox">TOTAL KARYAWAN</span>
+					<div class="box_keluar boxsama"><?php echo $count_total; ?></div>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -173,10 +191,11 @@ require_once("db.config.php");
 		var h = today.getHours();
 		var m = today.getMinutes();
 		var s = today.getSeconds();
+		var date_t = today.getDate()+'-'+(today.getMonth()+1)+'-'+ today.getFullYear();
 		m = checkTime(m);
 		s = checkTime(s);
 		document.getElementById('txt').innerHTML =
-		h + ":" + m + ":" + s;
+		h + ":" + m + ":" + s + " | " + date_t;
 		var t = setTimeout(startTime, 500);
 	}
 	function checkTime(i) {
